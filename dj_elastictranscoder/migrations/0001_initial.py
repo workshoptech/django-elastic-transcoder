@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('message', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('last_modified', models.DateTimeField(auto_now=True)),
-                ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
+                ('content_type', models.ForeignKey(to='contenttypes.ContentType', on_delete=models.deletion.CASCADE)),
             ],
         ),
     ]
