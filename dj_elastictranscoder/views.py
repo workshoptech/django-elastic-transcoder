@@ -134,9 +134,16 @@ def endpoint(request):
     Receive SNS notification
     """
     data = {}
+
+    # Request body can be bytes or string
     try:
-        data = json.loads(request.body)
-    except ValueError:
+        request_body = request.body.decode("utf-8")
+    except AttributeError:
+        request_body = request.body
+
+    try:
+        data = json.loads(request_body)
+    except ValueError as e:
         return HttpResponseBadRequest(str(e))
 
     try:
