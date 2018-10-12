@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.CharField(max_length=100, serialize=False, primary_key=True)),
                 ('object_id', models.PositiveIntegerField()),
-                ('state', models.PositiveIntegerField(default=0, db_index=True, choices=[(0, b'Submitted'), (1, b'Progressing'), (2, b'Error'), (3, b'Warning'), (4, b'Complete')])),
+                ('state', models.PositiveIntegerField(default=0, db_index=True, choices=[(0, 'Submitted'), (1, 'Progressing'), (2, 'Error'), (3, 'Warning'), (4, 'Complete')])),
                 ('message', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('last_modified', models.DateTimeField(auto_now=True)),
